@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>graphics</class>
+ <widget class="QMainWindow" name="graphics">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1268</width>
+    <height>655</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>graphics</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>291</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="y_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="move_but">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>move</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>scale x:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="scale_center_y_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>308.3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="x_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="scale_y_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>1.3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>center y:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QPushButton" name="scale_but">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>scale</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>center x:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>scale y:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="scale_x_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>1.2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>move y:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="angle_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>20</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QPushButton" name="back_but">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>back</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="scale_center_x_text">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>825</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>angle (deg):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>move x:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="rotate_but">
+       <property name="styleSheet">
+        <string notr="true">font: 18pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>rotate</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>10</y>
+      <width>911</width>
+      <height>591</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>520</y>
+      <width>291</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 24pt &quot;.AppleSystemUIFont&quot;;</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1268</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
