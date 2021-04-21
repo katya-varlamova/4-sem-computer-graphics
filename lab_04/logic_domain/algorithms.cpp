@@ -266,16 +266,16 @@ void midpoint_ellipse(draw_params_t &params, const ellipse_t &ellipse)
     {
         if (f < 0)
         {
-
             p.x++;
             f += dbsq * p.x + bsq;
+
         }
         else
         {
-
             p.x++;
             p.y--;
             f += dbsq * p.x + bsq - dasq * p.y;
+
         }
         mirror_and_draw_forth(p, params, ellipse.center);
     }
@@ -288,12 +288,14 @@ void midpoint_ellipse(draw_params_t &params, const ellipse_t &ellipse)
         {
             p.y--;
             f += -dasq * p.y + asq;
+
         }
         else
         {
             p.x++;
             p.y--;
             f += -dasq * p.y + asq + dbsq * p.x;
+
         }
         mirror_and_draw_forth(p, params, ellipse.center);
     }

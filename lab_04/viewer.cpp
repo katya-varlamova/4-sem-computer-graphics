@@ -193,17 +193,35 @@ void viewer::on_draw_ellipse_spectrum_but_clicked()
         return;
     }
     ellipse_t ellipse;
-    double exc = sqrt(1.0 - radius_ver * radius_ver / double(radius_hor) / double(radius_hor));
-    for (int i = 1; i < num + 1; i++)
+    if (radius_hor > radius_ver)
     {
-        ellipse.algo = algorithm;
-        ellipse.color = color;
-        ellipse.center = { center_x, center_y };
-        ellipse.radius_hor = radius_hor;
-        ellipse.radius_ver = radius_ver;
-        ellipses.push_back(ellipse);
-        radius_hor += step;
-        radius_ver = radius_hor * sqrt(1 - exc * exc);
+        double exc = sqrt(1.0 - radius_ver * radius_ver / double(radius_hor) / double(radius_hor));
+        for (int i = 1; i < num + 1; i++)
+        {
+            ellipse.algo = algorithm;
+            ellipse.color = color;
+            ellipse.center = { center_x, center_y };
+            ellipse.radius_hor = radius_hor;
+            ellipse.radius_ver = radius_ver;
+            ellipses.push_back(ellipse);
+            radius_hor += step;
+            radius_ver = double(radius_hor) * sqrt(1.0 - exc * exc);
+        }
+    }
+    else
+    {
+        double exc = sqrt(1.0 - radius_hor * radius_hor / double(radius_ver) / double(radius_ver));
+        for (int i = 1; i < num + 1; i++)
+        {
+            ellipse.algo = algorithm;
+            ellipse.color = color;
+            ellipse.center = { center_x, center_y };
+            ellipse.radius_hor = radius_hor;
+            ellipse.radius_ver = radius_ver;
+            ellipses.push_back(ellipse);
+            radius_ver += step;
+            radius_hor = double(radius_ver) * sqrt(1.0 - exc * exc);
+        }
     }
     print_error("");
     repaint();
