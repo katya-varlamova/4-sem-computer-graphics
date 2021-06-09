@@ -21,7 +21,7 @@ void Viewer::keyPressEvent(QKeyEvent *event)
     {
         line_direction = 1;
     }
-    if (event->key() == Qt::Key_Backspace)
+    if (event->key() == Qt::Key_Option)
     {
         line_direction = 2;
     }
@@ -36,12 +36,13 @@ void Viewer::mousePressEvent(QMouseEvent *event)
 {
     if (mode == 0)
     {
-        if (line_direction == 0 || cutter->getPoints().empty())
+        if (line_direction == 0 || cutter->getPoints().size() < 3)
             cutter->addPoint(Point(event->position().x(), event->position().y()));
         else if (line_direction == 1)
-            cutter->addPoint(Point(event->position().x(), cutter->getPoints().back().getY()));
+            cutter->addPoint(Point(event->position().x(), cutter->getLines().back().get_p2().getY()));
         else
-            cutter->addPoint(Point(cutter->getPoints().back().getX(), event->position().y()));
+            cutter->addPoint(Point(cutter->getLines().back().get_p2().getX(), event->position().y()));
+        line_direction = 0;
 
     }
     if (mode == 1)
@@ -266,9 +267,7 @@ void getNormal(Point p1, Point p2, Point p3, double *normal)
         normal[0] = -vect.getY() * 1.0 / vect.getX();
         normal[1] = 1;
     }
-//    std::cout << "normal_bef = " << normal.getX() << " " << normal.getY() << std::endl;
     Point check = getVector(p1, p3);
-//    std::cout << "check = " << check.getX() << " " << check.getY() << std::endl;
     if (check.getX() * normal[0] + check.getY() * normal[1] < 0)
     {
         normal[0] = - normal[0];
@@ -313,23 +312,17 @@ bool checkCutter(std::vector<Point> &cutter)
 }
 bool Viewer::cut(Point p1, Point p2, std::vector<Point> cutter, Point *r)
 {
-//    std::cout << p1.getX() << " " << p1.getY() << " " << p2.getX() << " " << p2.getY() << std::endl;
     if (!checkCutter(cutter))
         return false;
     Point d = getVector(p1, p2);
-//    std::cout << "dir = " << d.getX() << " " << d.getY() << std::endl;
     double tn = 0, tv = 1;
     for (size_t i = 0; i < cutter.size(); i++)
     {
         double normal[2];
         getNormal(cutter[i], cutter[(i + 1) % cutter.size()], cutter[(i + 2) % cutter.size()], normal);
-//        std::cout << "normal = " << normal[0] << " " << normal[1] << std::endl;
         Point f = cutter[i];
-//        std::cout << "f = " << f.getX() << " " << f.getY() << std::endl;
         Point w = getVector(f, p1);
-//        std::cout << "w = " << w.getX() << " " << w.getY() << std::endl;
         double scW = getScalarMul(normal, w);
-//        std::cout << "scw = " << scW << std::endl;
         double scD = getScalarMul(normal, d);
         if (scD == 0)
         {
@@ -341,13 +334,6 @@ bool Viewer::cut(Point p1, Point p2, std::vector<Point> cutter, Point *r)
         else
         {
             double t = - scW / scD;
-//            std::cout << "t = " << t << std::endl;
-//            if (t <= 1 && t >= 0)
-//            {
-//                Point p(p1.getX() + (p2.getX() - p1.getX()) * t,
-//                        p1.getY() + (p2.getY() - p1.getY()) * t);
-//                points.push_back(p);
-//            }
             if (scD > 0)
             {
                 if (t > tn)
@@ -359,7 +345,6 @@ bool Viewer::cut(Point p1, Point p2, std::vector<Point> cutter, Point *r)
                     tv = t;
             }
         }
-//        std::cout << std::endl << std::endl;
     }
     if (tn > tv)
         return false;
