@@ -3,6 +3,7 @@
 
 #include <QPainter>
 #include <math.h>
+#include <stdlib.h>
 #include <sys/time.h>
 #include <initializer_list>
 typedef struct p point;

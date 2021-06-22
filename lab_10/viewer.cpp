@@ -49,39 +49,18 @@ viewer::~viewer()
 {
     delete ui;
 }
-void sleepFeature(int sleep_time)
-{
-    QTime end = QTime::currentTime().addMSecs(sleep_time);
-    while (QTime::currentTime() < end)
-    {
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 1);
-    }
-    return;
-}
 void viewer::draw_point(point2d p, QColor color)
 {
     scene->addRect(p.x, p.y, 1, 1, QPen(color));
-    //sleepFeature(10);
 }
 void viewer::get_scale(double &scale_x, double &scale_y, double min_y, double max_y)
 {
     scale_x = width / (max_x - min_x);
     scale_y = height / (max_y - min_y);
-//    if (max_x * min_x < 0.0)
-//        scale_x = width / (max_x - min_x);
-//    else
-//        scale_x = max_x > 0 ? width / max_x : width / min_x;
-
-//    if (max_y * min_y < 0.0)
-//        scale_y = height / (max_y - min_y);
-//    else
-//        scale_y = max_y > 0 ? height / max_y : height / min_y;
 }
 void viewer::draw_line(point2d p1, point2d p2, QColor color)
 {
 
-//    p1.rotate_z(z_angle);
-//    p2.rotate_z(z_angle);
     scene->addLine(p1.x, p1.y,
                    p2.x, p2.y, QPen(color));
 
@@ -156,10 +135,7 @@ void viewer::intersection(point2d &intersection, point2d f, point2d s, std::vect
         intersection = point2d(xi, yi);
     else
     {
-//        if (hor[f.x] == height || hor[f.x] == 0)
         intersection = point2d(-1, -1);
-//        else
-//            intersection = point2d(f.x, hor[f.x]);
 
     }
 
@@ -247,8 +223,6 @@ void viewer::fhorizon()
                     draw_line(cur2d, prev2d, Qt::red);
                     horizon(prev2d, cur2d, lowhor, uphor);
                 }
-//                else
-//                    draw_line(cur, prev, min.get_y(), max.get_y(), Qt::white);
             }
             else
             {

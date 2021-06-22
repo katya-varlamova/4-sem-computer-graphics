@@ -61,11 +61,3 @@ point2d point::project(double dx, double dy, double kx, double ky)
 {
     return point2d((x + dx) * kx, (y + dy) * ky);
 }
-void point2d::rotate_z(double angle)
-{
-    point tmp;
-    tmp.set_x(x * cos(angle) + y * sin(angle));
-    tmp.set_y( -x * sin(angle) + y * cos(angle));
-    x = round(tmp.get_x());
-    y = round(tmp.get_y());
-}

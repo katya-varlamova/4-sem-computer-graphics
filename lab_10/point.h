@@ -12,7 +12,6 @@ public:
         yd = y;
 
     }
-    void rotate_z(double az);
     int x, y;
     double xd, yd;
 };
